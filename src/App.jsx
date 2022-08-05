@@ -1,6 +1,5 @@
 import "./index.css";
 import React, { useState } from "react";
-import Header from "./Componentes/Header.jsx";
 import Apresentação from "./Componentes/Apresentação";
 import Props from "./Componentes/Props";
 import Destructuring from "./Componentes/Destructuring";
@@ -10,6 +9,10 @@ import ChildrenProp from "./Componentes/ChildrenProp";
 import FunctionProps from "./Componentes/FunctionProps";
 import StateLift from "./Componentes/StateLift";
 import ChangeMessageState from "./Componentes/ChangeMessageState";
+import Header from "./Componentes/Header";
+import StateLift2 from "./Componentes/StateLift2";
+import MessageState from "./Componentes/MessageState";
+
 function App() {
 	const name = "Batman";
 	const [userName] = useState("Maria");
@@ -73,6 +76,12 @@ function App() {
 		setMessage(msg);
 	};
 
+	// state lift 2
+	const [menssagem2, setMenssagem2] = useState();
+	const mostraMenssagem = (msg2) => {
+		setMenssagem2(msg2);
+	};
+
 	return (
 		<React.Fragment>
 			<Header />
@@ -115,7 +124,10 @@ function App() {
 			<FunctionProps myMessage={Messenger} />
 			{/* STATE LIFT */}
 			<StateLift msg={message} />
-			<ChangeMessageState handleMessage={handleMessage}/>
+			<ChangeMessageState handleMessage={handleMessage} />
+			{/* state lift 2 */}
+			<StateLift2 msg2={menssagem2}/>
+			<MessageState showMsg={mostraMenssagem}/>
 		</React.Fragment>
 	);
 }
