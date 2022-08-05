@@ -6,6 +6,10 @@ import Props from "./Componentes/Props";
 import Destructuring from "./Componentes/Destructuring";
 import ListaCompras from "./Componentes/ListaCompras";
 import Fragments from "./Componentes/Fragments";
+import ChildrenProp from "./Componentes/ChildrenProp";
+import FunctionProps from "./Componentes/FunctionProps";
+import StateLift from "./Componentes/StateLift";
+import ChangeMessageState from "./Componentes/ChangeMessageState";
 function App() {
 	const name = "Batman";
 	const [userName] = useState("Maria");
@@ -54,6 +58,21 @@ function App() {
 			bebida: "café",
 		},
 	];
+
+	function showMessage() {
+		console.log("Evento do componente pai!");
+		alert("Evento do componente pai!");
+	}
+
+	const Messenger = () => {
+		alert("Message delivered!!");
+	};
+
+	const [message, setMessage] = useState();
+	const handleMessage = (msg) => {
+		setMessage(msg);
+	};
+
 	return (
 		<React.Fragment>
 			<Header />
@@ -74,6 +93,7 @@ function App() {
 			{/* LISTA 2 */}
 			{produtos.map((product) => (
 				<ListaCompras
+					key={cars.id}
 					carne={product.carne}
 					verdura={product.verdura}
 					limpeza={product.limpeza}
@@ -82,7 +102,20 @@ function App() {
 				/>
 			))}
 			{/* Fragments */}
-			<Fragments propFragment="TESTE"/>
+			<Fragments propFragment="TESTE" />
+			{/* CHILDREN PROP */}
+			<ChildrenProp myValue="testing...">
+				<p className="text-white">Este é o conteúdo</p>
+			</ChildrenProp>
+			<ChildrenProp myValue="testing...2">
+				<p className="text-white">Testando o container!</p>
+			</ChildrenProp>
+			{/* FUNÇÃO EM PROP */}
+			<FunctionProps myFunction={showMessage} />
+			<FunctionProps myMessage={Messenger} />
+			{/* STATE LIFT */}
+			<StateLift msg={message} />
+			<ChangeMessageState handleMessage={handleMessage}/>
 		</React.Fragment>
 	);
 }
