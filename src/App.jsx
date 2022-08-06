@@ -1,134 +1,39 @@
-import "./index.css";
-import React, { useState } from "react";
-import Apresentação from "./Componentes/Apresentação";
-import Props from "./Componentes/Props";
-import Destructuring from "./Componentes/Destructuring";
-import ListaCompras from "./Componentes/ListaCompras";
-import Fragments from "./Componentes/Fragments";
-import ChildrenProp from "./Componentes/ChildrenProp";
-import FunctionProps from "./Componentes/FunctionProps";
-import StateLift from "./Componentes/StateLift";
-import ChangeMessageState from "./Componentes/ChangeMessageState";
+import "./App.css";
 import Header from "./Componentes/Header";
-import StateLift2 from "./Componentes/StateLift2";
-import MessageState from "./Componentes/MessageState";
+import UserDetails from "./Desafios/UserDetails";
 
 function App() {
-	const name = "Batman";
-	const [userName] = useState("Maria");
-	const cars = [
-		{ id: 1, brand: "Ferrari", cor: "amarelo", newCar: true, km: 0 },
-		{ id: 2, brand: "Audi", cor: "branco", newCar: false, km: 125670 },
-		{ id: 3, brand: "BMW", cor: "verde", newCar: true, km: 0 },
-		{ id: 4, brand: "Lamborghini", cor: "azul", newCar: false, km: 78980 },
-		{ id: 5, brand: "Alfa Romeo", cor: "preto", newCar: true, km: 0 },
+	const user = [
+		{ nome: "João", idade: 32, profissao: "Advogado" },
+		{ nome: "Carlos", idade: "22", profissao: "Analista de Sistemas" },
+		{ nome: "Júnior", idade: "16", profissao: "Estudante" },
 	];
 
-	const produtos = [
-		{
-			carne: "Bisteca",
-			verdura: "couve",
-			limpeza: "detergente",
-			higiene: "escova de dente",
-			bebida: "água",
-		},
-		{
-			carne: "Bisteca",
-			verdura: "alface",
-			limpeza: "detergente",
-			higiene: "pasta de dente",
-			bebida: "vinho",
-		},
-		{
-			carne: "Bisteca",
-			verdura: "espinafre",
-			limpeza: "detergente",
-			higiene: "fio dental",
-			bebida: "cerveja",
-		},
-		{
-			carne: "Bisteca",
-			verdura: "pimentão",
-			limpeza: "detergente",
-			higiene: "escova de dente",
-			bebida: "vodka",
-		},
-		{
-			carne: "Bisteca",
-			verdura: "rúcula",
-			limpeza: "detergente",
-			higiene: "escova de dente",
-			bebida: "café",
-		},
-	];
-
-	function showMessage() {
-		console.log("Evento do componente pai!");
-		alert("Evento do componente pai!");
-	}
-
-	const Messenger = () => {
-		alert("Message delivered!!");
+	const MaiorDeIdade = () => {
+		return (
+			<>
+				<p>{user.nome} pode tirar a carteira de habilitação.</p>
+			</>
+		);
 	};
 
-	const [message, setMessage] = useState();
-	const handleMessage = (msg) => {
-		setMessage(msg);
-	};
-
-	// state lift 2
-	const [menssagem2, setMenssagem2] = useState();
-	const mostraMenssagem = (msg2) => {
-		setMenssagem2(msg2);
+	const MenorDeIdade = () => {
+		return (
+			<>
+				<p>{user.name} é menor de idade. Não pode tirar a CNH.</p>
+			</>
+		);
 	};
 
 	return (
-		<React.Fragment>
+		<>
 			<Header />
-			<Apresentação nome="Fulano" idade="21" profissao="programador" />
-			{/* PROPS */}
-			<Props nome={name} />
-			<Props nome={userName} />
-			{/* DESTRUCTURING */}
-			<Destructuring brand="Wolkswagen" km={10000} cor="branco" newCar={false} />
-			{/* REAPROVEITAMENTO */}
-			<Destructuring brand="Fiat" km={12000} cor="vermelho" newCar={true} />
-			<Destructuring brand="Nissan" km={1000} cor="azul" newCar={true} />
-			{/* LOOP EM ARRAY DE OBJETOS */}
-			{cars.map((car) => (
-				<Destructuring brand={car.brand} cor={car.cor} km={car.km} newCar={car.newCar} />
+			{/* TAREFA 4 */}
+			{user.map((pessoa) => (
+				<UserDetails nome={pessoa.nome} idade={pessoa.idade} profissao={pessoa.profissao} />
 			))}
-
-			{/* LISTA 2 */}
-			{produtos.map((product) => (
-				<ListaCompras
-					key={cars.id}
-					carne={product.carne}
-					verdura={product.verdura}
-					limpeza={product.limpeza}
-					higiene={product.higiene}
-					bebida={product.bebida}
-				/>
-			))}
-			{/* Fragments */}
-			<Fragments propFragment="TESTE" />
-			{/* CHILDREN PROP */}
-			<ChildrenProp myValue="testing...">
-				<p className="text-white">Este é o conteúdo</p>
-			</ChildrenProp>
-			<ChildrenProp myValue="testing...2">
-				<p className="text-white">Testando o container!</p>
-			</ChildrenProp>
-			{/* FUNÇÃO EM PROP */}
-			<FunctionProps myFunction={showMessage} />
-			<FunctionProps myMessage={Messenger} />
-			{/* STATE LIFT */}
-			<StateLift msg={message} />
-			<ChangeMessageState handleMessage={handleMessage} />
-			{/* state lift 2 */}
-			<StateLift2 msg2={menssagem2}/>
-			<MessageState showMsg={mostraMenssagem}/>
-		</React.Fragment>
+			{user.idade >= 18 ? <MaiorDeIdade /> : <MenorDeIdade />}
+		</>
 	);
 }
 
