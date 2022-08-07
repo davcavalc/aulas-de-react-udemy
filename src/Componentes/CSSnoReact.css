@@ -13,8 +13,9 @@ body {
 	color: yellow;
 	background-color: #000;
 }
-
+.texto-descricao {
+	color:white;
+}
 .texto-descricao:hover {
-	color: yellow;
 	text-transform: uppercase;
 }

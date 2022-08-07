@@ -1,10 +1,10 @@
 import React from "react";
-import "../css/CSSnoReact.css";
+import "../Componentes/CSSnoReact.css";
 const CSSnoReact = () => {
 	return (
 		<>
 			<div className="titulo font-bold">CSS global</div>
-			<p className="text-justify">
+			<p className="text-justify texto-descricao">
 				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam voluptatum, minus
 				necessitatibus ad adipisci doloribus reprehenderit. Commodi veniam in numquam provident culpa
 				velit voluptate delectus ex quod, minus fugit distinctio itaque tenetur perspiciatis laboriosam

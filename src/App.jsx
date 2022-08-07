@@ -1,3 +1,4 @@
+import CssInline from "./Componentes/CssInline";
 import CSSnoReact from "./Componentes/CSSnoReact";
 import Header from "./Componentes/Header";
 // import UserDetails from "./Desafios/UserDetails";
@@ -44,7 +45,9 @@ function App() {
 				))}
 			</div> */}
 			{/* CSS global + CSS de componente */}
-			<CSSnoReact/>
+			<CSSnoReact />
+			{/* CSS Inline */}
+			<CssInline/>
 		</>
 	);
 }
