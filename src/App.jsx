@@ -1,10 +1,16 @@
+import React, { useState } from "react";
 import CssInline from "./Componentes/CssInline";
+import CSSInlineDinâmico from "./Componentes/CSSInlineDinâmico";
 import CSSnoReact from "./Componentes/CSSnoReact";
 import Header from "./Componentes/Header";
+import MyName from "./Componentes/MyName";
+import SetNome from "./Componentes/SetNome";
 // import UserDetails from "./Desafios/UserDetails";
 import "./index.css";
 
 function App() {
+	const [nome] = useState("Fulano");
+	const [name, useName] = useState();
 	// const user = [
 	// 	{ id: 1, nome: "João", idade: 32, profissao: "Advogado" },
 	// 	{ id: 2, nome: "Carlos", idade: 22, profissao: "Analista de Sistemas" },
@@ -47,7 +53,17 @@ function App() {
 			{/* CSS global + CSS de componente */}
 			<CSSnoReact />
 			{/* CSS Inline */}
-			<CssInline/>
+			<CssInline />
+			{/* CSS Inline Dinâmico */}
+			<CSSInlineDinâmico name={name} />
+			<div
+				className="font-bold text-4xl text-center"
+				style={nome === "Fulano" ? { color: "green", backgroundColor: "#000" } : null}>
+				CSSInlineDinâmico
+			</div>
+			{/* State Lift */}
+			<MyName name={name} />
+			<SetNome useName={useName}/>
 		</>
 	);
 }
