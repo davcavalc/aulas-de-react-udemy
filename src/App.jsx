@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ClassesDinâmicas from "./Componentes/ClassesDinâmicas";
 import CssInline from "./Componentes/CssInline";
 import CSSInlineDinâmico from "./Componentes/CSSInlineDinâmico";
+import CSSModules from "./Componentes/CSSModules";
 import CSSnoReact from "./Componentes/CSSnoReact";
 import Header from "./Componentes/Header";
 import MyName from "./Componentes/MyName";
@@ -67,6 +68,8 @@ function App() {
 			<SetNome useName={useName} />
 			{/* CSS Dinâmicas */}
 			<ClassesDinâmicas />
+			{/* CSS MODULES */}
+			<CSSModules />
 		</>
 	);
 }
