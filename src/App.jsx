@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ClassesDinâmicas from "./Componentes/ClassesDinâmicas";
 import CssInline from "./Componentes/CssInline";
 import CSSInlineDinâmico from "./Componentes/CSSInlineDinâmico";
 import CSSnoReact from "./Componentes/CSSnoReact";
@@ -63,7 +64,9 @@ function App() {
 			</div>
 			{/* State Lift */}
 			<MyName name={name} />
-			<SetNome useName={useName}/>
+			<SetNome useName={useName} />
+			{/* CSS Dinâmicas */}
+			<ClassesDinâmicas />
 		</>
 	);
 }
