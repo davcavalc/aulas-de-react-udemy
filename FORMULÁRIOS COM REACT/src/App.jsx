@@ -1,5 +1,6 @@
-import LabelInput from "./Componentes/LabelInput.jsx";
 import Form1 from "./Componentes/Form1";
+import LabelInput from "./Componentes/LabelInput.jsx";
+import ManipulaValores from "./Componentes/ManipulaValores.jsx";
 import "./index.css";
 
 function App() {
@@ -11,6 +12,8 @@ function App() {
 			<Form1 />
 			{/* LABEL ENVOLVENDO INPUT */}
 			<LabelInput />
+			{/* MANIPULAÇÃO DE DADOS DE UM INPUT */}
+			<ManipulaValores />
 		</>
 	);
 }
