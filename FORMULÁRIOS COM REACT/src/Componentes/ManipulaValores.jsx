@@ -9,6 +9,7 @@ const ManipulaValores = () => {
 	};
 
 	console.log(name);
+	console.log(email);
 	return (
 		<>
 			<form className="flex justify-center border-[2.5px] border-green-600 mx-52 mt-7 shadow-md shadow-current">
@@ -24,8 +25,16 @@ const ManipulaValores = () => {
 								placeholder="Digite o seu nome:"
 								onChange={handleChange}
 							/>
+							<span className="font-bold">Email</span>
+							<input
+								className="C"
+								type="email"
+								name="email"
+								placeholder="Digite o seu segundo nome:"
+								onChange={(e) => setEmail(e.target.value)}
+							/>
 						</label>
-					</div> //TODO continuação da aula
+					</div> 
 				</div>
 			</form>
 		</>

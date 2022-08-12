@@ -1,3 +1,4 @@
+import EnvioForm from "./Componentes/EnvioForm";
 import Form1 from "./Componentes/Form1";
 import LabelInput from "./Componentes/LabelInput.jsx";
 import ManipulaValores from "./Componentes/ManipulaValores.jsx";
@@ -10,10 +11,13 @@ function App() {
 				Olá mundo!!
 			</h1>
 			<Form1 />
-			{/* LABEL ENVOLVENDO INPUT */}
+			{/* 2 LABEL ENVOLVENDO INPUT */}
 			<LabelInput />
-			{/* MANIPULAÇÃO DE DADOS DE UM INPUT */}
+			{/* 3 MANIPULAÇÃO DE DADOS DE UM INPUT */}
 			<ManipulaValores />
+			{/* 4 ENVIO DE FORMULÁRIO */}
+			<EnvioForm />
+			{/* 5 ENVIO DE FORMULÁRIO */}
 		</>
 	);
 }
