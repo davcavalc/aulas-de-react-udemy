@@ -11,10 +11,12 @@ const EnvioForm = () => {
 		event.preventDefault();
 		console.log("Enviando o formulário");
 		console.log(name, email);
+		setEmail("");
+		setName("");
 	};
 
 	//Controlled inputs
-	
+
 	return (
 		<>
 			<form
