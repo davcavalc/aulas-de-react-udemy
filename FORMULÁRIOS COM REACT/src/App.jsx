@@ -1,5 +1,7 @@
 import { useState } from "react";
 import MyForm from "./Componentes/MyForm";
+import TextArea from "./Componentes/TextArea";
+import MyText from "./Componentes/MyText";
 import "./index.css";
 
 function App() {
@@ -7,10 +9,13 @@ function App() {
 	return (
 		<>
 			<h1 className="flex justify-center mt-8 font-bold uppercase text-5xl mx-4 bg-slate-500 text-white">
-				forms
+				forms com Reactjs !!
 			</h1>
 			{/* 5 - Controlled inputs */}
 			<MyForm user={{ name: "Josias", email: "josias@gmail.com" }} />
+			{/* 6 - Text Area */}
+			<TextArea />
+			<MyText />
 		</>
 	);
 }
