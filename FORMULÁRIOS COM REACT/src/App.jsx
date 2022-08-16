@@ -1,7 +1,7 @@
 import { useState } from "react";
 import MyForm from "./Componentes/MyForm";
-import TextArea from "./Componentes/TextArea";
-import MyText from "./Componentes/MyText";
+// import TextArea from "./Componentes/TextArea";
+// import MyText from "./Componentes/MyText";
 import "./index.css";
 
 function App() {
@@ -12,10 +12,10 @@ function App() {
 				forms com Reactjs !!
 			</h1>
 			{/* 5 - Controlled inputs */}
-			<MyForm user={{ name: "Josias", email: "josias@gmail.com" }} />
+			<MyForm user={{ name: "Josias", email: "josias@gmail.com", role:"admin" }} />
 			{/* 6 - Text Area */}
-			<TextArea />
-			<MyText />
+			{/* <TextArea /> */}
+			{/* <MyText /> */}
 		</>
 	);
 }
