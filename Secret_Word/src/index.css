@@ -38,3 +38,44 @@ body {
 .btn:hover {
 	background-color: #0923af;
 }
+
+
+.title1 {
+	@apply text-[2.5em] 
+}
+
+.pointContainer {
+	@apply font-bold
+}
+
+.tip span {
+	color: #ecfa00;
+}
+
+.wordContainer {
+	@apply m-[1.5em] p-[1.5em] border-[20px] border-solid border-startScreen rounded-sm flex;
+}
+
+.letter {
+	@apply text-[70px] leading-[1.5] border-[3px] border-solid border-black h-[100px] w-[100px] uppercase bg-[#fff] text-black font-bold;
+}
+
+.blankSquare {
+	@apply text-[70px] leading-[1.5] border-[3px] border-solid border-black h-[100px] w-[100px] uppercase bg-[#fff] text-black font-bold;
+}
+
+.letterContainer p {
+	@apply mb-[1.2em];
+}
+
+.letterContainer form {
+	@apply flex items-center justify-center;
+}
+
+.letterContainer input {
+	@apply h-[50px] w-[50px] text-[2em] text-center mr-[1em];
+}
+
+.wrongLettersContainer {
+	@apply mt-6;
+}
