@@ -2,10 +2,9 @@ import "./index.css";
 // Componentes
 import StartScreen from "./Componentes/StartScreen";
 // React
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 // Importação dos dados
-import { useEffect } from "react";
 import Game from "./Componentes/Game";
 import GameOver from "./Componentes/GameOver";
 import wordsList from "./data/words";
@@ -30,7 +29,7 @@ function App() {
 	const [guesses, setGuesses] = useState(guessesQty);
 	const [score, setScore] = useState(0);
 
-	const pickWordAndCategory = () => {
+	const pickWordAndCategory = useCallback(() => {
 		// Pick a random category
 		const categories = Object.keys(words);
 		const category = categories[Math.floor(Math.random() * Object.keys(categories).length)];
@@ -40,10 +39,13 @@ function App() {
 		console.log(word);
 
 		return { word, category };
-	};
+	}, [words]);
 
 	// Starts the game
-	const startGame = () => {
+	const startGame = useCallback(() => {
+		// clear all letters
+		clearLetterStates();
+
 		// Pick word and pick category
 		const { word, category } = pickWordAndCategory();
 
@@ -61,7 +63,7 @@ function App() {
 		setLetters(wordLetters);
 
 		setGameStage(stages[1].name);
-	};
+	}, [pickWordAndCategory]);
 
 	// Process the letter input
 	const verifyLetter = (letter) => {
@@ -83,7 +85,7 @@ function App() {
 		setGuessedLetters([]);
 		setWrongLetters([]);
 	};
-
+	// check if the guesses ended
 	useEffect(() => {
 		if (guesses <= 0) {
 			// reset all states
@@ -91,6 +93,20 @@ function App() {
 			setGameStage(stages[2].name);
 		}
 	}, [guesses]);
+
+	// Check win condition
+	useEffect(() => {
+		const uniqueLetters = [...new Set(letters)];
+
+		// win condition
+		if (guessedLetters.length === uniqueLetters.length) {
+			// add score
+			setScore((actualScore) => (actualScore += 100));
+
+			//restart the game with new word
+			startGame();
+		}
+	}, [guessedLetters, letters, startGame]);
 
 	// Restarts the game
 	const retry = () => {
