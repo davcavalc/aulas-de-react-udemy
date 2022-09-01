@@ -3,10 +3,11 @@
 @tailwind utilities;
 
 body {
-  margin: 10px;
-  padding: 10px;
+ margin: 50px;
+ padding: 50px;
+ background-color: #f8f6b4;
 }
 
 .title {
-  @apply text-3xl flex justify-center uppercase font-bold bg-blue-800 text-white;
+ @apply text-3xl flex justify-center uppercase font-bold bg-blue-800 text-white;
 }

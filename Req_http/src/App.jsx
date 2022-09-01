@@ -4,7 +4,9 @@ import "./index.css";
 function App() {
  return (
   <>
-   <h1 className="title">lista de produtos</h1>
+   <div className="border-[4px] border-black shadow-lg shadow-blue-500">
+       <h1 className="title">lista de produtos</h1>
+   </div>
   </>
  );
 }
