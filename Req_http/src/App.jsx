@@ -2,9 +2,9 @@ import React from "react";
 import "./index.css";
 import { useState, useEffect } from "react";
 
-// const url = "http://localhost:3000/products";
+const url = "http://localhost:3000/products";
 
-function App() {
+async function App() {
  const [products, setProducts] = useState([]);
  const [name, setName] = useState("");
  const [price, setPrice] = useState("");
@@ -12,7 +12,7 @@ function App() {
  // 1 - resgatando dados
  useEffect(() => {
   async function fetchData() {
-   const res = await fetch("http://localhost:3000/products");
+   const res = await fetch(url);
 
    const data = await res.json();
 
@@ -29,7 +29,7 @@ function App() {
    name,
    price,
   };
-  const res = await fetch("http://localhost:3000/products", {
+  const res = await fetch(url, {
    method: "POST",
    headers: {
     "Content-type": "application/json",
@@ -37,6 +37,9 @@ function App() {
    body: JSON.stringify(product),
   });
  };
+ //  const addedProduct = await res.json();
+ //  // 3 - carregamento dinâmico
+ //  setProducts((prevProducts) => [...prevProducts, addedProduct]);
 
  return (
   <>
