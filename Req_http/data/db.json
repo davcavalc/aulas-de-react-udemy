@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "Camisa",
-      "price": 59.99
+      "price": 59.9
     },
     {
       "id": 2,
@@ -12,28 +12,8 @@
     },
     {
       "id": 3,
-      "name": "Boné de aba reta",
-      "price": 29.99
-    },
-    {
-      "name": "Pão-doce",
-      "price": "2",
-      "id": 4
-    },
-    {
-      "name": "Pão-doce",
-      "price": "2",
-      "id": 5
-    },
-    {
-      "name": "Alface",
-      "price": "3",
-      "id": 6
-    },
-    {
-      "name": "Capa de chuva",
-      "price": "50.50",
-      "id": 7
+      "name": "Boné aba reta",
+      "price": 29.9
     }
   ]
 }

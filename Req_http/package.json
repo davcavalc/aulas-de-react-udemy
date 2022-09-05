@@ -10,7 +10,6 @@
     "server": "json-server --watch data/db.json"
   },
   "dependencies": {
-    "json-server": "^0.17.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

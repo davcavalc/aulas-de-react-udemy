@@ -1,88 +1,87 @@
-import React from "react";
 import "./index.css";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
-const url = "http://localhost:3000/products";
-
-async function App() {
+function App() {
  const [products, setProducts] = useState([]);
  const [name, setName] = useState("");
  const [price, setPrice] = useState("");
-
- // 1 - resgatando dados
+ // 1 - RESGATANDO DADOS
  useEffect(() => {
   async function fetchData() {
-   const res = await fetch(url);
-
+   const res = await fetch("http://localhost:3000/products");
    const data = await res.json();
-
    setProducts(data);
   }
-
   fetchData();
  }, []);
 
- // 2 - Add de produtos
+ // 2 - ADIÇÃO DE PRODUTOS
  const handleSubmit = async (e) => {
   e.preventDefault();
   const product = {
    name,
    price,
   };
-  const res = await fetch(url, {
+
+  console.log(product);
+  const res = await fetch("http://localhost:3000/products", {
    method: "POST",
    headers: {
-    "Content-type": "application/json",
+    "Content-Type": "application/json",
    },
    body: JSON.stringify(product),
   });
- };
- //  const addedProduct = await res.json();
- //  // 3 - carregamento dinâmico
- //  setProducts((prevProducts) => [...prevProducts, addedProduct]);
 
+  const addedProduct = await res.json();
+
+  // 3 - CARREGAMENTO DINÂMICO
+  setProducts((prevProducts) => [...prevProducts, addedProduct]);
+ };
  return (
   <>
-   <div className="border-[4px] border-black shadow-lg shadow-blue-500">
-    <h1 className="title">lista de produtos</h1>
-    <ul>
-     {products.map((product) => (
-      <li className="flex justify-center mt-6 font-bold mb-6" key={product.id}>
-       {product.name} - R$: {product.price}
-      </li>
-     ))}
-    </ul>
-    {/* FORMULÁRIO */}
-    <div className="add-product">
-     <form
-      className="flex flex-col items-center justify-center"
-      onSubmit={handleSubmit}
-     >
-      <label htmlFor="">
-       <span>Nome:</span>
-       <input
-        className="flex flex-col mb-[15px]"
-        type="text"
-        value={name}
-        name="name"
-        onChange={(e) => setName(e.target.value)}
-       />
-       <span>Preço:</span>
-       <input
-        className="flex flex-col mb-[15px]"
-        type="number"
-        value={price}
-        name="price"
-        onChange={(e) => setPrice(e.target.value)}
-       />
-       <input
-        className="mb-4 border-[2px] border-[#000] w-40 rounded-md shadow-lg shadow-black font-bold hover:border-[6px] hover:border-amber-500 hover:bg-black hover:text-white"
-        type="submit"
-        value="Criar produto"
-       />
-      </label>
-     </form>
-    </div>
+   <h1 className="flex justify-center text-2xl uppercase bg-amber-400 text-black font-bold leading-1 h-10">
+    Lista de produtos
+   </h1>
+   <ul>
+    {products.map((product) => (
+     <li className="flex justify-center" key={product.id}>
+      {product.name} -
+      <span className="font-bold text-blue-500 ml-3">R$: {product.price}</span>
+     </li>
+    ))}
+   </ul>
+     <div className="add-products">
+       <p className="flex justify-center h-10 leading-1  uppercase underline font-bold bg-amber-400 text-black">Adicionar produto</p>
+    <form
+     className="flex flex-col items-center justify-center mt-5"
+     onSubmit={handleSubmit}
+    >
+     <label>
+      <span className="font-bold justify-center flex">Nome:</span>
+      <input
+       className="flex flex-col mb-[15px] border-2 shadow-lg shadow-black"
+       type="text"
+       value={name}
+       name="name"
+       onChange={(e) => setName(e.target.value)}
+      />
+     </label>
+     <label>
+      <span className="font-bold justify-center flex">Preço:</span>
+      <input
+       className="flex flex-col mb-[15px] border-2 shadow-lg shadow-black"
+       type="number"
+       value={price}
+       name="price"
+       onChange={(e) => setPrice(e.target.value)}
+      />
+     </label>
+     <input
+      className="flex flex-col mb-[15px] border-2 border-black rounded-md w-[10em] items-center font-bold shadow-lg shadow-black"
+      type="button"
+      value="Submit"
+     />
+    </form>
    </div>
   </>
  );

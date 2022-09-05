@@ -2,16 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
- margin: 50px;
- padding: 50px;
- background-color: #f8f6b4;
-}
-
-.title {
- @apply text-3xl flex justify-center uppercase font-bold bg-blue-800 text-white;
-}
-
-.add-product {
-    @apply border-t-[1px] border-solid border-[#000];
+.add-products {
+ @apply border-t-[1px] border-solid border-black;
 }
