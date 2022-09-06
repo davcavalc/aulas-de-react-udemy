@@ -1,19 +1,29 @@
 import "./index.css";
 import React, { useState, useEffect } from "react";
 
+// // 4 - CUSTOM HOOK {
+import { useFetch } from "./hooks/useFetch";
+// }
+
+const url = "http://localhost:3000/products";
+
 function App() {
  const [products, setProducts] = useState([]);
+
+ // 4 - CUSTOM HOOK
+ const { data: items } = useFetch(url);
+
  const [name, setName] = useState("");
  const [price, setPrice] = useState("");
  // 1 - RESGATANDO DADOS
- useEffect(() => {
-  async function fetchData() {
-   const res = await fetch("http://localhost:3000/products");
-   const data = await res.json();
-   setProducts(data);
-  }
-  fetchData();
- }, []);
+ //  useEffect(() => {
+ //   async function fetchData() {
+ //    const res = await fetch(url);
+ //    const data = await res.json();
+ //    setProducts(data);
+ //   }
+ //   fetchData();
+ //  }, []);
 
  // 2 - ADIÇÃO DE PRODUTOS
  const handleSubmit = async (e) => {
@@ -24,7 +34,7 @@ function App() {
   };
 
   console.log(product);
-  const res = await fetch("http://localhost:3000/products", {
+  const res = await fetch(url, {
    method: "POST",
    headers: {
     "Content-Type": "application/json",
@@ -36,6 +46,8 @@ function App() {
 
   // 3 - CARREGAMENTO DINÂMICO
   setProducts((prevProducts) => [...prevProducts, addedProduct]);
+  setName("");
+  setPrice("");
  };
  return (
   <>
@@ -43,15 +55,18 @@ function App() {
     Lista de produtos
    </h1>
    <ul>
-    {products.map((product) => (
-     <li className="flex justify-center" key={product.id}>
-      {product.name} -
-      <span className="font-bold text-blue-500 ml-3">R$: {product.price}</span>
-     </li>
-    ))}
+    {items &&
+     items.map((product) => (
+      <li className="flex justify-center" key={product.id}>
+       {product.name} -
+       <span className="font-bold text-blue-500 ml-3">R$: {product.price}</span>
+      </li>
+     ))}
    </ul>
-     <div className="add-products">
-       <p className="flex justify-center h-10 leading-1  uppercase underline font-bold bg-amber-400 text-black">Adicionar produto</p>
+   <div className="add-products">
+    <p className="flex justify-center h-10 items-center  uppercase underline font-bold bg-amber-400 text-black">
+     Adicionar produto
+    </p>
     <form
      className="flex flex-col items-center justify-center mt-5"
      onSubmit={handleSubmit}
@@ -59,7 +74,7 @@ function App() {
      <label>
       <span className="font-bold justify-center flex">Nome:</span>
       <input
-       className="flex flex-col mb-[15px] border-2 shadow-lg shadow-black"
+       className="flex flex-col mb-[15px] border-2 shadow-lg shadow-black rounded-md"
        type="text"
        value={name}
        name="name"
@@ -69,7 +84,7 @@ function App() {
      <label>
       <span className="font-bold justify-center flex">Preço:</span>
       <input
-       className="flex flex-col mb-[15px] border-2 shadow-lg shadow-black"
+       className="flex flex-col mb-[15px] border-2 shadow-lg shadow-black rounded-md"
        type="number"
        value={price}
        name="price"
@@ -77,9 +92,9 @@ function App() {
       />
      </label>
      <input
-      className="flex flex-col mb-[15px] border-2 border-black rounded-md w-[10em] items-center font-bold shadow-lg shadow-black"
-      type="button"
-      value="Submit"
+      className="flex flex-col mb-[15px] border-2 border-black rounded-md w-[15em] items-center font-bold shadow-lg shadow-black"
+      type="submit"
+      value="Adicionar produto"
      />
     </form>
    </div>
