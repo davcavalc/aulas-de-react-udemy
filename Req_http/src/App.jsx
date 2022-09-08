@@ -11,7 +11,7 @@ function App() {
  const [products, setProducts] = useState([]);
 
  // 4 - CUSTOM HOOK
- const { data: items, httpConfig } = useFetch(url);
+ const { data: items, httpConfig, loading } = useFetch(url);
 
  const [name, setName] = useState("");
  const [price, setPrice] = useState("");
@@ -57,15 +57,21 @@ function App() {
    <h1 className="flex justify-center text-2xl uppercase bg-amber-400 text-black font-bold leading-1 h-10">
     Lista de produtos
    </h1>
-   <ul>
-    {items &&
-     items.map((product) => (
-      <li className="flex justify-center" key={product.id}>
-       {product.name} -
-       <span className="font-bold text-blue-500 ml-3">R$: {product.price}</span>
-      </li>
-     ))}
-   </ul>
+   {/* 6 - LOADING */}
+   {loading && <p>Carregado dados...</p>}
+   {!loading && (
+    <ul>
+     {items &&
+      items.map((product) => (
+       <li className="flex justify-center" key={product.id}>
+        {product.name} -
+        <span className="font-bold text-blue-500 ml-3">
+         R$: {product.price}
+        </span>
+       </li>
+      ))}
+    </ul>
+   )}
    <div className="add-products">
     <p className="flex justify-center h-10 items-center  uppercase underline font-bold bg-amber-400 text-black">
      Adicionar produto

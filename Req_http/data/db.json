@@ -54,6 +54,46 @@
       "name": "Sabonete",
       "price": "4.50",
       "id": 11
+    },
+    {
+      "name": "Suporte para monitor",
+      "price": "120",
+      "id": 12
+    },
+    {
+      "name": "Suporte para monitor",
+      "price": "120",
+      "id": 13
+    },
+    {
+      "name": "Suporte para monitor",
+      "price": "120",
+      "id": 14
+    },
+    {
+      "name": "Suporte para monitor",
+      "price": "120",
+      "id": 15
+    },
+    {
+      "name": "Suporte para monitor",
+      "price": "120",
+      "id": 16
+    },
+    {
+      "name": "Travesseiro",
+      "price": "23.99",
+      "id": 17
+    },
+    {
+      "name": "Cabo HDMI",
+      "price": "10.99",
+      "id": 18
+    },
+    {
+      "name": "Playstation 5",
+      "price": "6500.99",
+      "id": 19
     }
   ]
 }
