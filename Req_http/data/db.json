@@ -94,6 +94,46 @@
       "name": "Playstation 5",
       "price": "6500.99",
       "id": 19
+    },
+    {
+      "name": "Suporte para celular",
+      "price": "40.45",
+      "id": 20
+    },
+    {
+      "name": "Suporte para celular",
+      "price": "40.45",
+      "id": 21
+    },
+    {
+      "name": "Suporte para celular",
+      "price": "40.45",
+      "id": 22
+    },
+    {
+      "name": "Suporte para celular",
+      "price": "40.45",
+      "id": 23
+    },
+    {
+      "name": "Suporte para celular",
+      "price": "40.45",
+      "id": 24
+    },
+    {
+      "name": "Suporte para celular",
+      "price": "40.45",
+      "id": 25
+    },
+    {
+      "name": "XBox 360",
+      "price": "3500.44",
+      "id": 26
+    },
+    {
+      "name": "Manteiga",
+      "price": "12.50",
+      "id": 27
     }
   ]
 }

@@ -99,12 +99,10 @@ function App() {
        name="price"
        onChange={(e) => setPrice(e.target.value)}
       />
-     </label>
-     <input
-      className="flex flex-col mb-[15px] border-2 border-black rounded-md w-[15em] items-center font-bold shadow-lg shadow-black"
-      type="submit"
-      value="Adicionar produto"
-     />
+         </label>
+         {/* 7 - STATE DE LOADING NO POST */}
+     {loading && <input type="submit" disabled value="Aguarde"/>}
+     {!loading && <input type="submit" value="Criar"/>}
     </form>
    </div>
   </>
