@@ -52,6 +52,12 @@ function App() {
   // 5 - REFETORANDO O POST
   httpConfig(product, "POST");
  };
+
+ // 8 - DESAFIO 6
+ const handleRemove = (id) => {
+  httpConfig(id, "DELETE");
+ };
+
  return (
   <>
    <h1 className="flex justify-center text-2xl uppercase bg-amber-400 text-black font-bold leading-1 h-10">
@@ -64,11 +70,17 @@ function App() {
     <ul>
      {items &&
       items.map((product) => (
-       <li className="flex justify-center" key={product.id}>
+       <li className="flex justify-center gap-2" key={product.id}>
         {product.name} -
         <span className="font-bold text-blue-500 ml-3">
          R$: {product.price}
         </span>
+        <input
+         onClick={() => handleRemove(product.id)}
+         className="border-[1px] rounded-md ml-4 cursor-pointer border-red-600 w-56 font-bold text-red-600"
+         type="button"
+         value="Deletar"
+        />
        </li>
       ))}
     </ul>
