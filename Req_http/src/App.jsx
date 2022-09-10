@@ -11,7 +11,7 @@ function App() {
  const [products, setProducts] = useState([]);
 
  // 4 - CUSTOM HOOK
- const { data: items, httpConfig, loading } = useFetch(url);
+ const { data: items, httpConfig, loading, error } = useFetch(url);
 
  const [name, setName] = useState("");
  const [price, setPrice] = useState("");
@@ -59,6 +59,7 @@ function App() {
    </h1>
    {/* 6 - LOADING */}
    {loading && <p>Carregado dados...</p>}
+   {error && <p>{error}</p>}
    {!loading && (
     <ul>
      {items &&
@@ -99,10 +100,10 @@ function App() {
        name="price"
        onChange={(e) => setPrice(e.target.value)}
       />
-         </label>
-         {/* 7 - STATE DE LOADING NO POST */}
-     {loading && <input type="submit" disabled value="Aguarde"/>}
-     {!loading && <input type="submit" value="Criar"/>}
+     </label>
+     {/* 7 - STATE DE LOADING NO POST */}
+     {loading && <input type="submit" disabled value="Aguarde" />}
+     {!loading && <input type="submit" value="Criar" />}
     </form>
    </div>
   </>
