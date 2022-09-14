@@ -1,0 +1,19 @@
+{
+    "produtos": [
+        {
+            "id": 1,
+            "nome": "borracha",
+            "preco": 2.55
+        },
+        {
+            "id": 2,
+            "nome": "lápis de cor",
+            "preco": 22.99
+        },
+        {
+            "id": 3,
+            "nome": "caneta esferográfica",
+            "preco": 3.45
+        }
+    ]
+}
