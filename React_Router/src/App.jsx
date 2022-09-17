@@ -5,6 +5,7 @@ import "./index.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
+import Navbar from "./Componentes/Navbar";
 // const url = "http://localhost:3000/produtos";
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
      React Router
     </h1>
     <BrowserRouter>
+    <Navbar />
      <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<About />} />
