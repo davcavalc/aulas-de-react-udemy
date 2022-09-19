@@ -2,7 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* CUSTOMIZAÇÃO GERAL */
 .active {
  background-color: #000;
  color: #fff;
+}
+
+.backgrad {
+    background-image: linear-gradient(#F58529, #FEDA77, #DD2A7B, #8134AF, #515BD4);
 }
