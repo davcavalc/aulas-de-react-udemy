@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Navbar from "./Componentes/Navbar";
+import Products from "./pages/Products";
 
 function App() {
  return (
@@ -19,6 +20,8 @@ function App() {
      <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<About />} />
+      {/* 4 - ROTA DINÂMICA */}
+      <Route path="/products/:id" element={<Products />} />
      </Routes>
     </BrowserRouter>
    </div>
