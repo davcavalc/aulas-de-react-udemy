@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Navbar from "./Componentes/Navbar";
 import Products from "./pages/Products";
+import Info from "./pages/Info";
 
 function App() {
  return (
@@ -20,6 +21,8 @@ function App() {
      <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<About />} />
+      {/* 6 - NESTED ROUTES */}
+      <Route path="/products/:id/info" element={<Info />} />
       {/* 4 - ROTA DINÂMICA */}
       <Route path="/products/:id" element={<Products />} />
      </Routes>
