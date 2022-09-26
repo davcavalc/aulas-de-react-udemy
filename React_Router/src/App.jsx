@@ -9,6 +9,8 @@ import Navbar from "./Componentes/Navbar";
 import Products from "./pages/Products";
 import Info from "./pages/Info";
 import NotFound from "./pages/NotFound";
+import Search from "./pages/Search";
+import SearchForm from "./Componentes/SearchForm";
 
 function App() {
  return (
@@ -19,6 +21,8 @@ function App() {
     </h1>
     <BrowserRouter>
      <Navbar />
+     {/* 9 - SEARCH */}
+     <SearchForm />
      <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<About />} />
@@ -26,6 +30,8 @@ function App() {
       <Route path="/products/:id/info" element={<Info />} />
       {/* 4 - ROTA DINÂMICA */}
       <Route path="/products/:id" element={<Products />} />
+      {/* 9 - SEARCH */}
+      <Route path="/search" element={<Search />} />
       {/* NO MATCH ROUTE */}
       <Route path="*" element={<NotFound />} />
      </Routes>
