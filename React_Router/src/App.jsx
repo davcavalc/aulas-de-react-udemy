@@ -2,7 +2,7 @@ import React from "react";
 import "./index.css";
 
 // 1 - CONFIG REACT ROUTER
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Navbar from "./Componentes/Navbar";
@@ -32,6 +32,8 @@ function App() {
       <Route path="/products/:id" element={<Products />} />
       {/* 9 - SEARCH */}
       <Route path="/search" element={<Search />} />
+      {/* 10 - REDIRECT */}
+      <Route path="/company" element={<Navigate to="/about" />} />
       {/* NO MATCH ROUTE */}
       <Route path="*" element={<NotFound />} />
      </Routes>
