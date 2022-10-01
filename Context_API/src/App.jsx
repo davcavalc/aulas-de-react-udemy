@@ -1,15 +1,23 @@
 import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./Componentes/Navbar";
+import Inicio from "./pages/Inicio.jsx";
+import Sobre from "./pages/Sobre.jsx";
+import Contato from "./pages/Contato.jsx";
 
 function App() {
-
-
-  return (
-    <>
-      <h1 className="flex justify-center text-3xl mt-4 uppercase font-bold hover:underline hover:bg-black hover:text-amber-500">
-        Context API
-      </h1>
-    </>
-  )
+ return (
+  <>
+   <BrowserRouter>
+    <Navbar />
+    <Routes>
+     <Route path="/" element={<Inicio />} />
+     <Route path="/sobre" element={<Sobre />} />
+     <Route path="/contato" element={<Contato />} />
+    </Routes>
+   </BrowserRouter>
+  </>
+ );
 }
 
-export default App
+export default App;
